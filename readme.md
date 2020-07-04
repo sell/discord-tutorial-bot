@@ -1,4 +1,11 @@
 # Discord JS Basic Template
 
 
-## After cloning, make sure you run **npm install** to install all of the packages needed
+## Star the repo
+
+**After Installing**
+```diff
++ npm i (this will install all packages)
++ add botconifg.json file (with your token)
++ make a issue on this repo, with any questions
+```

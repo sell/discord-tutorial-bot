@@ -1,0 +1,25 @@
+{
+  "name": "discordjsbottemplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "server": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ascii-table": "0.0.9",
+    "axios": "^0.19.2",
+    "common-tags": "^1.8.0",
+    "discord.js": "^12.2.0",
+    "fs": "0.0.1-security",
+    "ms": "^2.1.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}

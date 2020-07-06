@@ -10,7 +10,6 @@ module.exports = {
         try {
             response = await axios.get(url);
             data = response.data;
-            console.log(data)
         } catch (e) {
             return message.channel.send(`An error occured, please try again!`)
         }

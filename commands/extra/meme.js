@@ -3,7 +3,6 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
     name: "meme",
-    category: "animals",
     run: async (client, message, args) => {
         const url = "https://some-random-api.ml/meme";
 

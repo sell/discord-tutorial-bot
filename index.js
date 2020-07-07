@@ -10,6 +10,7 @@ client.aliases = new Discord.Collection();
 client.categories = fs.readdirSync("./commands/");
 client.prefix = config.prefix;
 
+
 ["command", "event"].forEach(handler => {
     require(`./handlers/${handler}`)(client);
   });

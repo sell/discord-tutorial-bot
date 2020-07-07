@@ -5,6 +5,7 @@ const axios = require('axios')
 
 module.exports = {
     name: "weather",
+    category: "extra",
     run: async (client, message, args) => {
         if(!args[0]) {
             return message.channel.send(`Please enter a city`)

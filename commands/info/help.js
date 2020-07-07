@@ -17,7 +17,7 @@ module.exports = {
 };
 
 function getAll(client, message) {
-    const embed = new MessageEmbed().setAuthor(`${message.author.username}` , message.author.displayAvatarURL()).setColor('#fb644c').setThumbnail(client.user.displayAvatarURL());
+    const embed = new MessageEmbed().setAuthor(`${message.author.username}, Requested Commands: ` , message.author.displayAvatarURL()).setColor('#fb644c').setThumbnail(client.user.displayAvatarURL());
 
     const commands = (category) => {
         return client.commands
@@ -29,12 +29,12 @@ function getAll(client, message) {
     const info = client.categories
         .map(
             (cat) =>
-                stripIndents`**${cat[0].toUpperCase() + cat.slice(1)}** (${client.commands.filter(cmd => cmd.category == cat).size}) \n${commands(
+                stripIndents`**${cat[0].toUpperCase() + cat.slice(1)}** (${client.commands.filter(cmd => cmd.category == cat).size}) : \n${commands(
                     cat
                 )}`
         )
         .reduce((string, category) => string + "\n" + category);
-    embed.setFooter(`There are ${client.commands.size} commands`)
+    embed.setFooter(`There are ${client.commands.size} commands`, message.author.displayAvatarURL())
     return message.channel.send(embed.setDescription(info));
 }
 
@@ -48,7 +48,7 @@ function getCMD(client, message, input) {
     let info = `No information found for command **${input.toLowerCase()}**`;
 
     if (!cmd) {
-        return message.channel.send(embed.setColor('#fb644c').setAuthor(`${message.author.username}` , message.author.displayAvatarURL()).setDescription(info).setThumbnail(client.user.displayAvatarURL()));
+        return message.channel.send(embed.setColor('#fb644c').setAuthor(`${message.author.username}, Requested Commands:` , message.author.displayAvatarURL()).setFooter(message.author.username, message.author.displayAvatarURL()).setDescription(info).setThumbnail(client.user.displayAvatarURL()));
     }
 
     if (cmd.name) info = `**Command name**: ${cmd.name}`;
@@ -60,5 +60,5 @@ function getCMD(client, message, input) {
         embed.setFooter(`Syntax: <> = required, [] = optional`);
     }
     if (cmd.timeout) info += "\n**Timeout**: " + ms(cmd.timeout);
-    return message.channel.send(embed.setColor('#fb644c').setAuthor(`${message.author.username}` , message.author.displayAvatarURL()).setDescription(info).setThumbnail(client.user.displayAvatarURL()));
+    return message.channel.send(embed.setColor('#fb644c').setAuthor(`${message.author.username}` , message.author.displayAvatarURL()).setDescription(info).setFooter(message.author.username, message.author.displayAvatarURL()).setThumbnail(client.user.displayAvatarURL()));
 }

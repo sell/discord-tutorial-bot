@@ -1,6 +1,7 @@
 const { MessageEmbed } = require('discord.js')
 module.exports = {
     name: "clear",
+    category: "moderation",
     run: async (client, message, args) => {
         if (!message.member.permissions.has("MANAGE_MESSAGES")) // sets the permission
             return message.channel.send(

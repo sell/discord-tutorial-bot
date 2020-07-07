@@ -3,7 +3,14 @@ const Timeout = new Set();
 const {MessageEmbed} = require('discord.js')
 const {prefix} = require('../../botconfig.json')
 const ms = require('ms')
-module.exports=async(bot,message)=>{
+
+module.exports = async (bot , message) => {
+
+    // if (await message.content.startsWith('https://')) {
+    //     message.delete()
+    //     return message.channel.send('no links please')
+    // }
+
 
     if (message.author.bot) return;
     if (!message.content.toLowerCase().startsWith(prefix)) return;

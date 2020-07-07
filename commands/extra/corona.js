@@ -3,6 +3,7 @@ const { MessageEmbed } = require('discord.js')
 
 module.exports = {
     name: "corona",
+    category: "extra",
     run: async (client, message, args) => {
         const baseUrl = "https://corona.lmao.ninja/v2";
 

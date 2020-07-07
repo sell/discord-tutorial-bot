@@ -2,6 +2,7 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
     name: "user-info",
+    category: "extra",
     run: async (client, message, args) => {
         let user = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.member;
 
@@ -24,7 +25,7 @@ module.exports = {
         const embed = new MessageEmbed()
             .setTitle(`${user.user.username} stats`)
             .setColor(`#f3f3f3`)
-            .setThumbnail(user.user.displayAvatarURL())
+            .setThumbnail(user.user.displayAvatarURL({dynamic : true}))
             .addFields(
                 {
                     name: "Name: ",

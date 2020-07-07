@@ -15,9 +15,11 @@
     "ascii-table": "0.0.9",
     "axios": "^0.19.2",
     "common-tags": "^1.8.0",
+    "discord-giveaways": "^4.2.1",
     "discord.js": "^12.2.0",
     "fs": "0.0.1-security",
-    "ms": "^2.1.2"
+    "ms": "^2.1.2",
+    "pm2": "^4.4.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"

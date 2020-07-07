@@ -1,10 +1,9 @@
-# Discord JS Basic Template
-
-
-## Star the repo
+# Discord JS Template With Commands!
 
 ## This is all free! Want to contribute/support me? 
 **BTC ADDRESS**: 12fMcxiRugD9pNambV1ZvNhT9uQVSUE7Hf
+
+## Star the repo
 
 **After Installing**
 ```diff

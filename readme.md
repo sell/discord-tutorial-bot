@@ -1,3 +1,5 @@
+<img src="main.svg" width="800" height="400">
+
 # Discord JS Template With Commands!
 
 **FOLLOW ME**

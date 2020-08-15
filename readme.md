@@ -1,5 +1,7 @@
 # Discord JS Template With Commands!
 
+**FOLLOW ME**
+
 ## This is all free! Want to contribute/support me? 
 **BTC ADDRESS**: 12fMcxiRugD9pNambV1ZvNhT9uQVSUE7Hf
 **Patreon** : https://www.patreon.com/terrible_dev

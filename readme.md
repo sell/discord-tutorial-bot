@@ -1,4 +1,6 @@
-<img src="main.svg" width="800" height="400">
+<p align="center">
+  <img src="main.svg" width="800" height="400">
+</p>
 
 # Discord JS Template With Commands!
 

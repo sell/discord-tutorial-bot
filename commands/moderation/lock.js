@@ -1,9 +1,14 @@
 const { MessageEmbed } = require('discord.js');
 
+
 module.exports = {
     name: "lock",
     category: "moderation",
     run: async (client, message, args) => {
+		if (!message.member.hasPermission('ADMINISTRATOR')) {
+            return message.channel.send(`You do not have permission!`)
+        }
+		
         const channels = message.guild.channels.cache.filter(ch => ch.type !== 'category');
         if (args[0] === 'on') {
             channels.forEach(channel => {

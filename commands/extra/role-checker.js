@@ -5,7 +5,7 @@ module.exports = {
     run: async (client, message, args) => {
         // code starts here
         try {
-            const roleName = message.guild.roles.cache.find(r => r.name === args.toString())
+            const roleName = message.guild.roles.cache.find(r => (r.name === args.toString()) || (r.id === args.toString()))
             console.log(roleName)
             const perms = new Permissions(roleName.permissions.bitfield).toArray()
 

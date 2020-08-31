@@ -1,12 +1,12 @@
-const { readdirSync } = require("fs");
-module.exports = (client) => {
-  const load = dirs => {
-    const events = readdirSync(`./events/${dirs}/`).filter(d => d.endsWith("js") );
-    for (let file of events) {
-      let evt = require(`../events/${dirs}/${file}`);
-      let eName = file.split('.')[0];
-      client.on(eName, evt.bind(null,client));
+const glob = require('fast-glob');
+const path = require('path');
+module.exports = async client => {
+    // allows events in as many subfolders as i want
+    const events = await glob('./events/**/*.js');
+    for(const file of events) {
+        const event = require(path.resolve(file));
+        const { name } = path.parse(file);
+        client.on(name, event.bind(null, client));
+        console.log(`Event | ${name} was loaded successfully`)
     }
-  };
-  ["client", "guild"].forEach((x) => load(x));
 };

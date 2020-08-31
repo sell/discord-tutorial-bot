@@ -1,14 +1,17 @@
-const { readdirSync } = require("fs");
-module.exports = (bot) => {
-    readdirSync("./commands/").map(dir => {
-        const commands = readdirSync(`./commands/${dir}/`).map(cmd=>{
-            let pull = require(`../commands/${dir}/${cmd}`)
-            console.log(`Loaded command ${pull.name}`)
-            bot.commands.set(pull.name,pull)
-            // didnt't make handler
-            if(pull.aliases){
-                pull.aliases.map(p=>bot.aliases.set(p,pull))
-            }
-        })
-    })
-}
+const glob = require('fast-glob');
+const path = require('path');
+module.exports = async (client) => {
+    const commands = await glob('./commands/**/*.js');
+    if(!commands) return console.log(`No commands found`);
+    for(const command of commands) {
+        const cmd = require(path.resolve(command));
+        if(!cmd.name) return console.log(`${command} is missing a name export`);
+        if(!cmd.run || !(cmd.run instanceof Function)) return console.log(`${command} is missing a run function!`)
+        else {
+            client.commands.set(cmd.name, cmd);
+            if(cmd.aliases && Array.isArray(cmd.aliases))
+                for(const alias of cmd.aliases) client.aliases.set(alias, cmd.name);
+        }
+        console.log(`Command | ${cmd.name} was loaded successfully`);
+    }
+};

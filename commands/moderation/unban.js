@@ -4,7 +4,7 @@ module.exports = {
     name: 'unban',
     run: async (client, message, args) => {
 
-        if (!message.member.hasPermission('BAN_MEMBERS')) return message.channel.send('You are missing **BAN_MEMBERS** permission!')
+        if (!message.member.hasPermission('BAN_MEMBERS')) return message.channel.send('You are missing **BAN_MEMBERS** permission!').then(m => m.delete({ timeout: 5000 }));
 
         if (!args[0]) return message.channel.send('please enter a users id to unban!').then(m => m.delete({ timeout: 5000 }));
 
@@ -14,7 +14,7 @@ module.exports = {
             member = await client.users.fetch(args[0])
         } catch (e) {
             console.log(e)
-            return message.channel.send('an error occured');
+            return message.channel.send('Not a valid user!').then(m => m.delete({ timeout: 5000 }));
         }
 
         const reason = args[1] ? args.slice(1).join(' ') : 'no reason';

@@ -13,7 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "ascii-table": "0.0.9",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "common-tags": "^1.8.0",
     "discord-giveaways": "^4.2.1",
     "discord.js": "^12.2.0",

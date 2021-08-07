@@ -11,6 +11,6 @@
 **After Installing**
 ```diff
 + npm i (this will install all packages)
-+ add botconifg.json file (with your token)
++ modify .env.sample to be .env
 + make a issue on this repo, with any questions
 ```

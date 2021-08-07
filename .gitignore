@@ -1,5 +1,4 @@
 node_modules
-/node_modules
-
-botconfig.json
-
+.env
+.eslintrc.js
+.idea

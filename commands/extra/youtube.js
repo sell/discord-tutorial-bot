@@ -1,7 +1,7 @@
 const axios = require('axios');
 const { MessageEmbed } = require('discord.js');
 
-const { WEATHER_API_KEY } = process.env;
+const { YOUTUBE_API_KEY } = process.env;
 
 module.exports = {
 	name: 'youtube',
@@ -11,7 +11,7 @@ module.exports = {
 			return message.channel.send('Please enter a youtube channel');
 		}
 
-		const url = `https://www.googleapis.com/youtube/v3/channels?part=statistics%2CcontentDetails%2CbrandingSettings%2Csnippet&id=${args[0]}&key=${WEATHER_API_KEY}`;
+		const url = `https://www.googleapis.com/youtube/v3/channels?part=statistics%2CcontentDetails%2CbrandingSettings%2Csnippet&id=${args[0]}&key=${YOUTUBE_API_KEY}`;
 
 		let info;
 

@@ -13,9 +13,14 @@ module.exports = {
 			return message.channel.send('Please enter a amount 1 to 100');
 		}
 
-		let deleteAmount;
+		let deleteAmount = parseInt(args[0], 10);
 
-		if (parseInt(args[0], 10) > 100) {
+		if (Number.isNaN(deleteAmount)) {
+			return message.channel.send('Please enter a amount 1 to 100');
+		}
+
+		// could use ternary
+		if (deleteAmount > 100) {
 			deleteAmount = 100;
 		} else {
 			deleteAmount = parseInt(args[0], 10);

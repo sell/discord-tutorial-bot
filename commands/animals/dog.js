@@ -5,19 +5,14 @@ module.exports = {
 	name: 'dog',
 	category: 'animals',
 	run: async (client, message, args) => {
-		const url = 'https://some-random-api.ml/img/dog';
-		const facts = 'https://some-random-api.ml/facts/dog';
+		const url = 'https://no-api-key.com/api/v1/animals/dog';
 
-		let image; let
-			response;
-		let fact; let
-			responses;
+		let image;
+		let fact;
 		try {
-			response = await axios.get(url);
-			image = response.data;
-
-			responses = await axios.get(facts);
-			fact = responses.data;
+			const { data } = await axios.get(url);
+			image = data.image;
+			fact = data.fact;
 		} catch (e) {
 			return message.channel.send('An error occured, please try again!');
 		}
@@ -25,8 +20,8 @@ module.exports = {
 		const embed = new MessageEmbed()
 			.setTitle('Random Dog Image and Fact')
 			.setColor('#f3f3f3')
-			.setDescription(fact.fact)
-			.setImage(image.link);
+			.setDescription(fact)
+			.setImage(image);
 
 		return message.channel.send(embed);
 	},

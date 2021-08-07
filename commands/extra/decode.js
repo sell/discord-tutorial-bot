@@ -5,20 +5,19 @@ module.exports = {
 	name: 'decode',
 	category: 'extra',
 	run: async (client, message, args) => {
-		const url = `http://some-random-api.ml/binary?decode=${args}`;
+		const url = `https://no-api-key.com/api/v1/binary-text?binary=${args.join('%20')}`;
 
-		let response; let
-			data;
+		let response;
 		try {
-			response = await axios.get(url);
-			data = response.data;
+			const { data } = await axios.get(url);
+			response = data;
 		} catch (e) {
 			return message.channel.send('An error occured, please try again!');
 		}
 
 		const embed = new MessageEmbed()
 			.setTitle('Decode Binary')
-			.setDescription(data.text);
+			.setDescription(response.text);
 
 		return message.channel.send(embed);
 	},

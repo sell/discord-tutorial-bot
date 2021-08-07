@@ -5,20 +5,19 @@ module.exports = {
 	name: 'hug',
 	category: 'extra',
 	run: async (client, message, args) => {
-		const url = 'https://some-random-api.ml/animu/hug';
+		const url = 'https://no-api-key.com/api/v1/hug';
 
-		let response; let
-			data;
+		let response;
 		try {
-			response = await axios.get(url);
-			data = response.data;
+			const { data } = await axios.get(url);
+			response = data;
 		} catch (e) {
 			return message.channel.send('An error occured!');
 		}
 
 		const embed = new MessageEmbed()
 			.setTitle(`@${message.author.username} hugs @${message.mentions.users.first().username || message.mentions.members.first()}`)
-			.setImage(data.link);
+			.setImage(response.link);
 
 		return message.channel.send(embed);
 	},

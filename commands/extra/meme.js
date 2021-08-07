@@ -5,22 +5,20 @@ module.exports = {
 	name: 'meme',
 	category: 'extra',
 	run: async (client, message, args) => {
-		const url = 'https://some-random-api.ml/meme';
+		const url = 'https://no-api-key.com/api/v1/memes';
 
-		let data; let
-			response;
+		let response;
 		try {
-			response = await axios.get(url);
-			data = response.data;
+			const { data } = await axios.get(url);
+			response = data;
 		} catch (e) {
 			return message.channel.send('An error has occured, try again!');
 		}
 
 		const embed = new MessageEmbed()
 			.setTitle('Random Meme: ')
-			.setDescription(data.caption)
 			.setColor('#f3f3f3')
-			.setImage(data.image);
+			.setImage(response.image);
 
 		return message.channel.send(embed);
 	},

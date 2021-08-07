@@ -16,7 +16,7 @@ module.exports = {
 				)}ms\n⏲️ API Ping is ${Math.round(client.ws.ping)}`,
 			)
 			.setColor('#fb644c');
-		await msg.edit(Embed);
-		return msg.edit('\u200b');
+		await msg.edit('\u200b');
+		return msg.edit(Embed);
 	},
 };

@@ -21,7 +21,7 @@
     "fast-glob": "^3.2.7",
     "fs": "0.0.1-security",
     "ms": "^2.1.2",
-    "pm2": "^4.4.0"
+    "pm2": "^5.2.0"
   },
   "devDependencies": {
     "eslint": "^7.32.0",
